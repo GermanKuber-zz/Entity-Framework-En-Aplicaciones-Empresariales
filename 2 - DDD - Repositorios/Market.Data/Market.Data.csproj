@@ -52,7 +52,18 @@
     <Compile Include="GenericRepository.cs" />
     <Compile Include="InitializerToSeedDataForMarketContext.cs" />
     <Compile Include="MarketContext.cs" />
+    <Compile Include="Migrations\201612300020505_InitialCreate.cs" />
+    <Compile Include="Migrations\201612300020505_InitialCreate.Designer.cs">
+      <DependentUpon>201612300020505_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612300023240_AddProductIsAvailable.cs" />
+    <Compile Include="Migrations\201612300023240_AddProductIsAvailable.Designer.cs">
+      <DependentUpon>201612300023240_AddProductIsAvailable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uow.cs" />
+    <Compile Include="UowWrappingGenericRepos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +74,15 @@
       <Project>{99bd6c40-312d-4629-860a-bbcbfe564f36}</Project>
       <Name>Market.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612300020505_InitialCreate.resx">
+      <DependentUpon>201612300020505_InitialCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612300023240_AddProductIsAvailable.resx">
+      <DependentUpon>201612300023240_AddProductIsAvailable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

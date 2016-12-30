@@ -10,7 +10,7 @@ namespace Market.Domain
 
         public Product()
         {
-            //TODO 01 : Se agerga propiedad IsAvailable y logica correspondiente
+            //TODO 02 : Se agerga propiedad IsAvailable y logica correspondiente
             IsAvailable = true;
             _lineItems = new HashSet<LineItem>();
             _categories = new HashSet<Category>();
