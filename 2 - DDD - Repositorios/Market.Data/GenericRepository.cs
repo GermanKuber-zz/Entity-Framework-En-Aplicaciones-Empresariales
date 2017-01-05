@@ -1,50 +1,80 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Market.Data
 {
     public class GenericRepository<TEntity> where TEntity : class
     {
         //TODO 01 : Se agrega GenericRepository
-        internal DbContext Context;
-        internal DbSet<TEntity> DbSet;
+        internal DbContext _context;
+        internal DbSet<TEntity> _dbSet;
 
         public GenericRepository(DbContext context)
         {
-            Context = context;
-            DbSet = context.Set<TEntity>();
+            _context = context;
+            _dbSet = context.Set<TEntity>();
         }
 
         public IEnumerable<TEntity> All()
         {
-            return DbSet.AsNoTracking().ToList();
+            return _dbSet.AsNoTracking().ToList();
         }
 
-        public IQueryable<TEntity> AllQuery()
+        public IEnumerable<TEntity> AllInclude
+        (params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            return DbSet.AsNoTracking();
+            return GetAllIncluding(includeProperties).ToList();
         }
+
+        public IEnumerable<TEntity> FindByInclude
+          (Expression<Func<TEntity, bool>> predicate,
+          params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            var query = GetAllIncluding(includeProperties);
+            IEnumerable<TEntity> results = query.Where(predicate).ToList();
+            return results;
+        }
+
+        public IQueryable<TEntity> GetAllIncluding
+        (params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> queryable = _dbSet.AsNoTracking();
+
+            return includeProperties.Aggregate
+              (queryable, (current, includeProperty) => current.Include(includeProperty));
+        }
+        public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        {
+
+            IEnumerable<TEntity> results = _dbSet.AsNoTracking()
+              .Where(predicate).ToList();
+            return results;
+        }
+
         public TEntity FindByKey(int id)
         {
-            return DbSet.Find(id);
+            Expression<Func<TEntity, bool>> lambda = Utilities.BuildLambdaForFindByKey<TEntity>(id);
+            return _dbSet.AsNoTracking().SingleOrDefault(lambda);
         }
 
         public void Insert(TEntity entity)
         {
-            DbSet.Add(entity);
+            _dbSet.Add(entity);
         }
 
         public void Update(TEntity entity)
         {
-            DbSet.Attach(entity);
-            Context.Entry(entity).State = EntityState.Modified;
+            _dbSet.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
             var entity = FindByKey(id);
-            DbSet.Remove(entity);
+            _dbSet.Remove(entity);
         }
     }
 }
