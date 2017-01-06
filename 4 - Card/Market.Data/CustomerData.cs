@@ -19,18 +19,9 @@ namespace Market.Data
         {
             using (var context = new MarketContext())
             {
-                try
-                {
-                    return context.Customers
-                                   .AsNoTracking()
-                                   .SingleOrDefault(c => c.CustomerId == id);
-                }
-                catch (System.Exception ex)
-                {
-
-                    throw;
-                }
-
+                return context.Customers
+                    .AsNoTracking()
+                    .SingleOrDefault(c => c.CustomerId == id);
             }
         }
 
