@@ -26,7 +26,7 @@ namespace Market.Domain
         public ICollection<LineItem> LineItems { get; set; }
 
         public ICollection<Category> Categories { get; set; }
-        public int MaxQuantity { get; set; }
+        public int MaxQuantity { get; set; } = 2;
         public decimal CurrentPrice { get; set; }
 
         public void RemoveFromProduction()
