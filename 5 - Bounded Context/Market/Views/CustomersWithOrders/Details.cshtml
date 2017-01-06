@@ -1,4 +1,4 @@
-﻿@model Market.Domain.ViewModels.CustomerViewModel
+﻿@model CustomerViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -25,11 +25,12 @@
         <dd>
             @Html.DisplayFor(model => model.OrderCount)
         </dd>
-    
+
     </dl>
-    <ul >
-        @foreach (var order in Model.Orders) {
-        <li>@order.OrderDate.ToShortDateString(), @order.OrderSource</li>
+    <ul>
+        @foreach (var order in Model.Orders)
+        {
+            <li>@order.OrderDate.ToShortDateString(), @order.OrderSource</li>
         }
     </ul>
 </div>

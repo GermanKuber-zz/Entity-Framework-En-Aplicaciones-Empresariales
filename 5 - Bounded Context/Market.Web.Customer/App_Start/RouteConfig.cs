@@ -9,11 +9,17 @@ namespace Market.Web.Customer
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "ProductList", action = "Index", id = UrlParameter.Optional }
+            //);
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ProductList", action = "Index", id = UrlParameter.Optional }
-            );
+                         "Default",
+                         "{controller}/{action}/{id}",
+                         new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                         new[] { "Market.Web.Customer.Controllers" }
+                     );
         }
     }
 }

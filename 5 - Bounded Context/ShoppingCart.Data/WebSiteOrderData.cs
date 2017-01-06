@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using ShoppingCart.Domain;
-using Product = Maintenance.Domain.Product;
 
 namespace ShoppingCart.Data
 {

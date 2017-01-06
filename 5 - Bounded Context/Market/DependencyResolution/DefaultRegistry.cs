@@ -15,6 +15,8 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Maintenance.Data;
+
 namespace Market.DependencyResolution
 {
     using Market.Data;
@@ -36,7 +38,7 @@ namespace Market.DependencyResolution
                 });
 
             //remember that Transient is the default. Left it here as a reminder
-            //For<DbContext>().Use<MarketContext>().Transient();
+            For<DbContext>().Use<MaintenanceContext>().Transient();
 
             //Alternate
             //For(typeof(GenericRepository<>))

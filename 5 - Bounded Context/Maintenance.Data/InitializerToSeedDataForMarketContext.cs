@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using Maintenance.Domain;
-using Market.Domain.Enums;
+using Maintenance.Domain.Enums;
 
 namespace Maintenance.Data
 {
