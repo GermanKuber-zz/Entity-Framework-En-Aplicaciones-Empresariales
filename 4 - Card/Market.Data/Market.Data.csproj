@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201701052259303_NUevos_Cambios.Designer.cs">
       <DependentUpon>201701052259303_NUevos_Cambios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701060152295_Add_Categories.cs" />
+    <Compile Include="Migrations\201701060152295_Add_Categories.Designer.cs">
+      <DependentUpon>201701060152295_Add_Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Uow.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701052259303_NUevos_Cambios.resx">
       <DependentUpon>201701052259303_NUevos_Cambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701060152295_Add_Categories.resx">
+      <DependentUpon>201701060152295_Add_Categories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,8 @@ namespace Market.Data
         //TODO : 3 -  Agrego nuevas clases al Contexto
         public MarketContext() : base("name=MarketContext")
         {
-            Database.SetInitializer<MarketContext>(new InitializerToSeedDataForMarketContext());
+            Database.Initialize(true);
+
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -27,7 +28,7 @@ namespace Market.Data
     {
         public OrderSystemContextConfig()
         {
-            this.SetDatabaseInitializer(new NullDatabaseInitializer<MarketContext>());
+            this.SetDatabaseInitializer(new InitializerToSeedDataForMarketContext());
         }
 
     }

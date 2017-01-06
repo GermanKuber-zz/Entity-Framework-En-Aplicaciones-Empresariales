@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Web.Customer", "Mark
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Services", "Market.Services\Market.Services.csproj", "{2029DFD9-3932-4435-9956-46CFC8B54423}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Market.Test.Services", "Market.Tests\Market.Test.Services\Market.Test.Services.csproj", "{1A81B072-60C1-40AF-8EC2-FC628052A9D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{2029DFD9-3932-4435-9956-46CFC8B54423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2029DFD9-3932-4435-9956-46CFC8B54423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2029DFD9-3932-4435-9956-46CFC8B54423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A81B072-60C1-40AF-8EC2-FC628052A9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A81B072-60C1-40AF-8EC2-FC628052A9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A81B072-60C1-40AF-8EC2-FC628052A9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A81B072-60C1-40AF-8EC2-FC628052A9D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{9ED6E19C-925B-440D-9E47-45619D9E89D0} = {A8ABF397-5C42-4BC6-B601-40B666FEE973}
 		{DA8CFCD3-0C8A-4BAE-BFBB-F0AE5E4C7070} = {3CF84722-0548-4568-A573-71856AED9400}
 		{66A1BCDA-33E6-4B13-9086-DDE42D3CE558} = {3CF84722-0548-4568-A573-71856AED9400}
+		{1A81B072-60C1-40AF-8EC2-FC628052A9D8} = {A8ABF397-5C42-4BC6-B601-40B666FEE973}
 	EndGlobalSection
 EndGlobal
