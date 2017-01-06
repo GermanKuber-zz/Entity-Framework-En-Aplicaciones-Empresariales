@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Market
+namespace Market.Web
 {
     public class RouteConfig
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Market.Core;
-using Market.Data;
-using Market.Domain;
 using Market.Web.Customer.ViewModels;
+using ShoppingCart.Data;
+using ShoppingCart.Domain;
 
 namespace Market.Services
 {

@@ -1,22 +1,22 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+using Maintenance.Domain;
 using Market.Data;
-using Market.Domain;
 
-namespace Market.Controllers
+namespace Market.Web.Controllers
 {
     public class CustomersController : Controller
     {
-        private GenericRepository<Customer> repo;
+        private readonly GenericRepository<Customer> _repo;
 
         public CustomersController(GenericRepository<Customer> _repo)
         {
-            repo = _repo;
+            this._repo = _repo;
         }
 
         public ActionResult Index()
         {
-            return View(repo.All());
+            return View(_repo.All());
         }
 
         public ActionResult Details(int? id)
@@ -25,7 +25,7 @@ namespace Market.Controllers
             {
                 return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindByKey(id.Value);
+            Customer customer = _repo.FindByKey(id.Value);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -44,7 +44,7 @@ namespace Market.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.Insert(customer);
+                _repo.Insert(customer);
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -56,7 +56,7 @@ namespace Market.Controllers
             {
                 return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindByKey(id.Value);
+            Customer customer = _repo.FindByKey(id.Value);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -70,7 +70,7 @@ namespace Market.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.Update(customer);
+                _repo.Update(customer);
                 return RedirectToAction("Index");
             }
             return View(customer);
@@ -82,7 +82,7 @@ namespace Market.Controllers
             {
                 return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
             }
-            Customer customer = repo.FindByKey(id.Value);
+            Customer customer = _repo.FindByKey(id.Value);
             if (customer == null)
             {
                 return HttpNotFound();
@@ -94,7 +94,7 @@ namespace Market.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            repo.Delete(id);
+            _repo.Delete(id);
 
             return RedirectToAction("Index");
         }

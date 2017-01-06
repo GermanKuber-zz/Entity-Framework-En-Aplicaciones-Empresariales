@@ -9,18 +9,18 @@ namespace Market.Data
     public class GenericRepository<TEntity> where TEntity : class
     {
 
-        internal DbContext _context;
-        internal DbSet<TEntity> _dbSet;
+        internal DbContext Context;
+        internal DbSet<TEntity> DbSet;
 
         public GenericRepository(DbContext context)
         {
-            _context = context;
-            _dbSet = context.Set<TEntity>();
+            Context = context;
+            DbSet = context.Set<TEntity>();
         }
 
         public IEnumerable<TEntity> All()
         {
-            return _dbSet.AsNoTracking().ToList();
+            return DbSet.AsNoTracking().ToList();
         }
 
         public IEnumerable<TEntity> AllInclude
@@ -41,7 +41,7 @@ namespace Market.Data
         public IQueryable<TEntity> GetAllIncluding
         (params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            IQueryable<TEntity> queryable = _dbSet.AsNoTracking();
+            IQueryable<TEntity> queryable = DbSet.AsNoTracking();
 
             return includeProperties.Aggregate
               (queryable, (current, includeProperty) => current.Include(includeProperty));
@@ -49,7 +49,7 @@ namespace Market.Data
         public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
 
-            IEnumerable<TEntity> results = _dbSet.AsNoTracking()
+            IEnumerable<TEntity> results = DbSet.AsNoTracking()
               .Where(predicate).ToList();
             return results;
         }
@@ -57,24 +57,24 @@ namespace Market.Data
         public TEntity FindByKey(int id)
         {
             Expression<Func<TEntity, bool>> lambda = Utilities.BuildLambdaForFindByKey<TEntity>(id);
-            return _dbSet.AsNoTracking().SingleOrDefault(lambda);
+            return DbSet.AsNoTracking().SingleOrDefault(lambda);
         }
 
         public void Insert(TEntity entity)
         {
-            _dbSet.Add(entity);
+            DbSet.Add(entity);
         }
 
         public void Update(TEntity entity)
         {
-            _dbSet.Attach(entity);
-            _context.Entry(entity).State = EntityState.Modified;
+            DbSet.Attach(entity);
+            Context.Entry(entity).State = EntityState.Modified;
         }
 
         public void Delete(int id)
         {
             var entity = FindByKey(id);
-            _dbSet.Remove(entity);
+            DbSet.Remove(entity);
         }
     }
 }

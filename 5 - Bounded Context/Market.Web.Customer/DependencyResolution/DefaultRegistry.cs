@@ -22,7 +22,7 @@ namespace Market.Web.CustomerFacing.DependencyResolution
                     scan.With(new ControllerConvention());
                 });
             //remember that Transient is the default. Left it here as a reminder
-            For<DbContext>().Use<MarketContext>().Transient();
+
 
 
             //Alternate

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Market
+namespace Market.Web
 {
     public class FilterConfig
     {

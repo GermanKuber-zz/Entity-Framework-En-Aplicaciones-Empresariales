@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace Market
+namespace Market.Web
 {
     public class BundleConfig
     {

@@ -2,13 +2,13 @@
 using System.Linq;
 using Market.Domain.ViewModels;
 
-namespace Market.Data
+namespace Maintenance.Data
 {
     public class CustomerWithOrdersData
     {
         public List<CustomerViewModel> GetAllCustomers()
         {
-            using (var context = new MarketContext())
+            using (var context = new MaintenanceContext())
             {
                 return context.Customers.AsNoTracking()
                 .Select(c => new CustomerViewModel
@@ -23,7 +23,7 @@ namespace Market.Data
 
         public CustomerViewModel FindCustomer(int? id)
         {
-            using (var context = new MarketContext())
+            using (var context = new MaintenanceContext())
             {
                 var cust =
                   context.Customers.AsNoTracking()

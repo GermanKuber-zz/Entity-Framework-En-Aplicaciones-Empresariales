@@ -21,7 +21,8 @@ namespace Market.DependencyResolution
     using StructureMap;
     using System.Data.Entity;
 
-    public class DefaultRegistry : Registry {
+    public class DefaultRegistry : Registry
+    {
         #region Constructors and Destructors
 
         public DefaultRegistry()
@@ -33,9 +34,9 @@ namespace Market.DependencyResolution
                     scan.WithDefaultConventions();
                     scan.With(new ControllerConvention());
                 });
-        
+
             //remember that Transient is the default. Left it here as a reminder
-            For<DbContext>().Use<MarketContext>().Transient();
+            //For<DbContext>().Use<MarketContext>().Transient();
 
             //Alternate
             //For(typeof(GenericRepository<>))

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Market.Services;
 using Market.Web.Customer.ViewModels;
+using ShoppingCart.Services;
 
 namespace Market.Web.Customer.Controllers
 {
     public class ProductListController : Controller
     {
-        private WebSiteOrderingService _service;
+        private readonly WebSiteOrderingService _service;
 
         public ProductListController(WebSiteOrderingService service)
         {

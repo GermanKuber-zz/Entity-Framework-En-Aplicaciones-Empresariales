@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Market</RootNamespace>
-    <AssemblyName>Market</AssemblyName>
+    <RootNamespace>Market.Web</RootNamespace>
+    <AssemblyName>Market.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -50,6 +50,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Market.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -240,13 +241,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Maintenance.Data\Maintenance.Data.csproj">
+      <Project>{A092B5F9-7461-4822-9D80-062583400397}</Project>
+      <Name>Maintenance.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Maintenance.Domain\Maintenance.Domain.csproj">
+      <Project>{AFE37CE9-C802-48A0-A506-A4B5AC95D424}</Project>
+      <Name>Maintenance.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Market.Data\Market.Data.csproj">
       <Project>{05B3AF0A-5A9B-477F-8A34-C2A8137EF2DA}</Project>
       <Name>Market.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Market.Domain\Market.Domain.csproj">
-      <Project>{99BD6C40-312D-4629-860A-BBCBFE564F36}</Project>
-      <Name>Market.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

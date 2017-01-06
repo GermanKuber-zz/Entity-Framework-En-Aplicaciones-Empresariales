@@ -1,17 +1,17 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using Market.Data;
+using Maintenance.Data;
 
-namespace Market.Controllers
+namespace Market.Web.Controllers
 {
     public class CustomersWithOrdersController : Controller
     {
-        private CustomerWithOrdersData repo = new CustomerWithOrdersData();
+        private readonly CustomerWithOrdersData _repo = new CustomerWithOrdersData();
 
         // GET: CustomersWithOrders
         public ActionResult Index()
         {
-            return View(repo.GetAllCustomers());
+            return View(_repo.GetAllCustomers());
         }
 
         // GET: CustomersWithOrders/Details/5
@@ -21,7 +21,7 @@ namespace Market.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var customer = repo.FindCustomer(id);
+            var customer = _repo.FindCustomer(id);
             if (customer == null)
             {
                 return HttpNotFound();

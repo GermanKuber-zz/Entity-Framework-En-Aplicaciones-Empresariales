@@ -263,17 +263,17 @@
       <Project>{05B3AF0A-5A9B-477F-8A34-C2A8137EF2DA}</Project>
       <Name>Market.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Market.Domain\Market.Domain.csproj">
-      <Project>{99BD6C40-312D-4629-860A-BBCBFE564F36}</Project>
-      <Name>Market.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Market.Services\Market.Services.csproj">
-      <Project>{2029DFD9-3932-4435-9956-46CFC8B54423}</Project>
-      <Name>Market.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Market.Web.Customer.ViewModels\Market.Web.Customer.ViewModels.csproj">
       <Project>{da8cfcd3-0c8a-4bae-bfbb-f0ae5e4c7070}</Project>
       <Name>Market.Web.Customer.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShoppingCart.Domain\ShoppingCart.Domain.csproj">
+      <Project>{528FB090-D5D5-45FA-AE61-CA42E0A9F53E}</Project>
+      <Name>ShoppingCart.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShoppingCart.Services\ShoppingCart.Services.csproj">
+      <Project>{2B6492C8-981D-4263-B3C6-E36565C34FDF}</Project>
+      <Name>ShoppingCart.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

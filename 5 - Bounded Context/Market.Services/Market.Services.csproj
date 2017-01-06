@@ -52,13 +52,17 @@
       <Project>{05B3AF0A-5A9B-477F-8A34-C2A8137EF2DA}</Project>
       <Name>Market.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Market.Domain\Market.Domain.csproj">
-      <Project>{99BD6C40-312D-4629-860A-BBCBFE564F36}</Project>
-      <Name>Market.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Market.Web.Customer.ViewModels\Market.Web.Customer.ViewModels.csproj">
       <Project>{DA8CFCD3-0C8A-4BAE-BFBB-F0AE5E4C7070}</Project>
       <Name>Market.Web.Customer.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShoppingCart.Data\ShoppingCart.Data.csproj">
+      <Project>{F83F6381-FF69-4D64-AC70-1846DFDF8837}</Project>
+      <Name>ShoppingCart.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShoppingCart.Domain\ShoppingCart.Domain.csproj">
+      <Project>{528FB090-D5D5-45FA-AE61-CA42E0A9F53E}</Project>
+      <Name>ShoppingCart.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

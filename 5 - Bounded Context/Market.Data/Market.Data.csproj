@@ -47,58 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerData.cs" />
-    <Compile Include="CustomerWithOrdersData.cs" />
     <Compile Include="GenericRepository.cs" />
-    <Compile Include="InitializerToSeedDataForMarketContext.cs" />
-    <Compile Include="MarketContext.cs" />
-    <Compile Include="Migrations\201612300020505_InitialCreate.cs" />
-    <Compile Include="Migrations\201612300020505_InitialCreate.Designer.cs">
-      <DependentUpon>201612300020505_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701050207439_New_Migration_Categoria.cs" />
-    <Compile Include="Migrations\201701050207439_New_Migration_Categoria.Designer.cs">
-      <DependentUpon>201701050207439_New_Migration_Categoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701052259303_NUevos_Cambios.cs" />
-    <Compile Include="Migrations\201701052259303_NUevos_Cambios.Designer.cs">
-      <DependentUpon>201701052259303_NUevos_Cambios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201701060152295_Add_Categories.cs" />
-    <Compile Include="Migrations\201701060152295_Add_Categories.Designer.cs">
-      <DependentUpon>201701060152295_Add_Categories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Uow.cs" />
-    <Compile Include="UowWrappingGenericRepos.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="WebSiteOrderData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Market.Domain\Market.Domain.csproj">
-      <Project>{99bd6c40-312d-4629-860a-bbcbfe564f36}</Project>
-      <Name>Market.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612300020505_InitialCreate.resx">
-      <DependentUpon>201612300020505_InitialCreate.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701050207439_New_Migration_Categoria.resx">
-      <DependentUpon>201701050207439_New_Migration_Categoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701052259303_NUevos_Cambios.resx">
-      <DependentUpon>201701052259303_NUevos_Cambios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201701060152295_Add_Categories.resx">
-      <DependentUpon>201701060152295_Add_Categories.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
