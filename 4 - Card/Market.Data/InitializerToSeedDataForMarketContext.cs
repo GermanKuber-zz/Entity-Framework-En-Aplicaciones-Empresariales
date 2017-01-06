@@ -7,7 +7,7 @@ using Market.Domain.Enums;
 namespace Market.Data
 {
 
-    public class InitializerToSeedDataForMarketContext : DropCreateDatabaseAlways<MarketContext>
+    public class InitializerToSeedDataForMarketContext : DropCreateDatabaseIfModelChanges<MarketContext>
     {
         protected override void Seed(MarketContext context)
         {

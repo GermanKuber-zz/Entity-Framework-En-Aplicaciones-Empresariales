@@ -1,8 +1,7 @@
 namespace Market.Data.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class New_Migration_Categoria : DbMigration
     {
         public override void Up()
@@ -14,33 +13,33 @@ namespace Market.Data.Migrations
             CreateTable(
                 "dbo.CartItems",
                 c => new
-                    {
-                        CartItemId = c.Int(nullable: false, identity: true),
-                        CartCookie = c.String(),
-                        CartId = c.Int(nullable: false),
-                        ProductId = c.Int(nullable: false),
-                        SelectedDateTime = c.DateTime(nullable: false),
-                        CurrentPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Quantity = c.Int(nullable: false),
-                    })
+                {
+                    CartItemId = c.Int(nullable: false, identity: true),
+                    CartCookie = c.String(),
+                    CartId = c.Int(nullable: false),
+                    ProductId = c.Int(nullable: false),
+                    SelectedDateTime = c.DateTime(nullable: false),
+                    CurrentPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    Quantity = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.CartItemId)
                 .ForeignKey("dbo.NewCarts", t => t.CartId, cascadeDelete: true)
                 .Index(t => t.CartId);
-            
+
             CreateTable(
                 "dbo.NewCarts",
                 c => new
-                    {
-                        CartId = c.Int(nullable: false, identity: true),
-                        CartCookie = c.String(),
-                        Initialized = c.DateTime(nullable: false),
-                        Expires = c.DateTime(nullable: false),
-                        SourceUrl = c.String(),
-                        CustomerId = c.Int(nullable: false),
-                        CustomerCookie = c.String(),
-                    })
+                {
+                    CartId = c.Int(nullable: false, identity: true),
+                    CartCookie = c.String(),
+                    Initialized = c.DateTime(nullable: false),
+                    Expires = c.DateTime(nullable: false),
+                    SourceUrl = c.String(),
+                    CustomerId = c.Int(nullable: false),
+                    CustomerCookie = c.String(),
+                })
                 .PrimaryKey(t => t.CartId);
-            
+
             AddColumn("dbo.Customers", "CustomerCookie", c => c.String());
             AddColumn("dbo.Products", "CategoryId", c => c.Int(nullable: false));
             AddColumn("dbo.Products", "Category_CategoryId", c => c.Int());
@@ -54,18 +53,18 @@ namespace Market.Data.Migrations
             AddForeignKey("dbo.Products", "Category_CategoryId1", "dbo.Categories", "CategoryId");
             DropTable("dbo.CategoryProducts");
         }
-        
+
         public override void Down()
         {
             CreateTable(
                 "dbo.CategoryProducts",
                 c => new
-                    {
-                        Category_CategoryId = c.Int(nullable: false),
-                        Product_ProductId = c.Int(nullable: false),
-                    })
+                {
+                    Category_CategoryId = c.Int(nullable: false),
+                    Product_ProductId = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => new { t.Category_CategoryId, t.Product_ProductId });
-            
+
             DropForeignKey("dbo.Products", "Category_CategoryId1", "dbo.Categories");
             DropForeignKey("dbo.Categories", "Product_ProductId", "dbo.Products");
             DropForeignKey("dbo.Products", "Category_CategoryId", "dbo.Categories");
