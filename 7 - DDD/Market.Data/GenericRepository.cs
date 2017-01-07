@@ -6,9 +6,9 @@ using System.Linq.Expressions;
 
 namespace Market.Data
 {
+    //TODO 14 - Se modifica repositorio Generico. Se aplica SaveChanges en los metodos.
     public class GenericRepository<TEntity> where TEntity : class
     {
-
         internal DbContext Context;
         internal DbSet<TEntity> DbSet;
 
@@ -38,7 +38,7 @@ namespace Market.Data
             return results;
         }
 
-        public IQueryable<TEntity> GetAllIncluding
+        private IQueryable<TEntity> GetAllIncluding
         (params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryable = DbSet.AsNoTracking();
@@ -63,18 +63,21 @@ namespace Market.Data
         public void Insert(TEntity entity)
         {
             DbSet.Add(entity);
+            Context.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
             DbSet.Attach(entity);
             Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var entity = FindByKey(id);
             DbSet.Remove(entity);
+            Context.SaveChanges();
         }
     }
 }

@@ -55,10 +55,6 @@
     <Compile Include="CustomerWithOrdersData.cs" />
     <Compile Include="InitializerToSeedDataForMarketContext.cs" />
     <Compile Include="MaintenanceContext.cs" />
-    <Compile Include="Migrations\201701061206558_Init.cs" />
-    <Compile Include="Migrations\201701061206558_Init.Designer.cs">
-      <DependentUpon>201701061206558_Init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderSystemContextConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,11 +68,6 @@
       <Project>{AFE37CE9-C802-48A0-A506-A4B5AC95D424}</Project>
       <Name>Maintenance.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701061206558_Init.resx">
-      <DependentUpon>201701061206558_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

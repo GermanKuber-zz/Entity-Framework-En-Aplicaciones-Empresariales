@@ -144,6 +144,7 @@ namespace Maintenance.Data.Tests
                 ContactDetail = new ContactDetail { TwitterAlias = "giantpuppy" }
             };
             _customerRepository.Insert(customer);
+
             WriteLog();
             Assert.AreNotEqual(0, customer.CustomerId);
             Assert.AreNotEqual(0, customer.ContactDetail.ContactDetailId);
