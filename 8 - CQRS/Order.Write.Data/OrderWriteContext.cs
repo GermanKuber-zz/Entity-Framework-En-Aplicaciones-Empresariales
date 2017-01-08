@@ -3,6 +3,7 @@ using Order.Write.Domain;
 
 namespace Order.Write.Data
 {
+    //TODO 2 - Creo contexto de Excritura
     public class OrderWriteContext : DbContext
     {
         public OrderWriteContext() : base("name=OrderContext")
@@ -15,6 +16,7 @@ namespace Order.Write.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("Order");
+            //TODO 3 - Ignora la propiedad de navegación
             modelBuilder.Entity<SalesOrder>().Ignore(s => s.LineItems);
         }
     }

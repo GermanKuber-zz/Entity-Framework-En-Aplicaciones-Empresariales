@@ -3,6 +3,7 @@ using Order.Read.Domain;
 
 namespace Order.Read.Data
 {
+    //TODO 1 - Creo contexto de Lectura
     public class OrderReadContext : DbContext
     {
         public OrderReadContext() : base("name=OrderContext")
