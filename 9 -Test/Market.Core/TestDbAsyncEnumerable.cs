@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 
 namespace Market.Core
 {
+    //TODO 8 - Agrego mock para enumerable  async
     internal class TestDbAsyncEnumerable<T> : EnumerableQuery<T>, IDbAsyncEnumerable<T>, IQueryable<T>
     {
         public TestDbAsyncEnumerable(IEnumerable<T> enumerable)

@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F244D82-0880-49A7-8B1F-C3A5AB32058B}</ProjectGuid>
+    <ProjectGuid>{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ShoppingCart.Domain.Tests</RootNamespace>
-    <AssemblyName>ShoppingCart.Domain.Tests</AssemblyName>
+    <RootNamespace>ShoppingCart.Tests.FullDb</RootNamespace>
+    <AssemblyName>ShoppingCart.Tests.FullDb</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,13 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ShoppingCartDomainTests.cs" />
+    <Compile Include="ShoppingCartViaFullDatabaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Market.Core\Market.Core.csproj">
-      <Project>{5B40AE95-E38D-4279-AAD5-9ABCCE464F7A}</Project>
-      <Name>Market.Core</Name>
+    <ProjectReference Include="..\ShoppingCart.Data\ShoppingCart.Data.csproj">
+      <Project>{F83F6381-FF69-4D64-AC70-1846DFDF8837}</Project>
+      <Name>ShoppingCart.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShoppingCart.Domain\ShoppingCart.Domain.csproj">
       <Project>{528FB090-D5D5-45FA-AE61-CA42E0A9F53E}</Project>

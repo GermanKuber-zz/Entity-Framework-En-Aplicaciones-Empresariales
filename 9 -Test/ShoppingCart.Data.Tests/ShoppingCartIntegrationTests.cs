@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Market.Data;
 using ShoppingCart.Domain;
 
 namespace ShoppingCart.Data.Tests
@@ -10,33 +11,34 @@ namespace ShoppingCart.Data.Tests
     [TestClass]
     public class ShoppingCartIntegrationTests
     {
-        private const string TheUri = "http://www.google.com";
-        private readonly StringBuilder _logBuilder = new StringBuilder();
-        private string _log;
+        private readonly string _theUri = "http://www.google.com";
         private readonly ShoppingCartContext _context;
+        private string _log;
+        private readonly StringBuilder _logBuilder = new StringBuilder();
         private readonly ReferenceContext _refContext;
 
         public ShoppingCartIntegrationTests()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ShoppingCartContext>());
+
+            Database.SetInitializer(new DropCreateDatabaseAlways<ShoppingCartContext>());
             _context = new ShoppingCartContext();
             _refContext = new ReferenceContext();
-            _context.Database.Initialize(force: true);
+            _context.Database.Initialize(true); //get this out of the way before logging
             SetupLogging();
         }
 
         [TestMethod]
         public void CanAddNewCartWithProductToCartsDbSet()
         {
-            var cart = NewCart.CreateCartFromProductSelection(TheUri, null, 1, 1, 9.99m);
+            var cart = NewCart.CreateCartFromProductSelection(_theUri, null, 1, 1, 9.99m);
             _context.Carts.Add(cart);
             Assert.AreEqual(1, _context.Carts.Local.Count);
         }
-
+        //TODO 10 - Ejemplo de test de integración
         [TestMethod]
         public void CanStoreCartWithInitialProduct()
         {
-            var cart = NewCart.CreateCartFromProductSelection(TheUri, null, 1, 1, 9.99m);
+            var cart = NewCart.CreateCartFromProductSelection(_theUri, null, 1, 1, 9.99m);
             var data = new WebSiteOrderData(_context, _refContext);
             var resultCart = data.StoreCartWithInitialProduct(cart);
             WriteLog();
@@ -47,15 +49,14 @@ namespace ShoppingCart.Data.Tests
         public void CanUpdateCartItems()
         {
             //Arrange
-            var goodId = _context.Carts.Where(c => c.CartItems.Any())
-              .Select(c => c.CartId)
-              .FirstOrDefault();
-            var data1 = new WebSiteOrderData(new ShoppingCartContext(), _refContext);
-            RevisitedCart existingCart = data1.RetrieveCart(goodId);
+            var data1 = new WebSiteOrderData(_context, _refContext);
+            var cartId = SeedCartAndReturnId(data1);
+            var existingCart = data1.RetrieveCart(cartId);
             var lineItemCount = existingCart.CartItems.Count();
             var firstItem = existingCart.CartItems.First();
             var originalTotalItems = existingCart.TotalItems;
             var originalQuantity = firstItem.Quantity;
+            //Domain test
             existingCart.CartItems.First().UpdateQuantity(originalQuantity + 1);
             existingCart.InsertNewCartItem(1, 1, new decimal(100));
             //Act
@@ -63,28 +64,37 @@ namespace ShoppingCart.Data.Tests
             data2.UpdateItemsForExistingCart(existingCart);
             //Assert
             var data3 = new WebSiteOrderData(new ShoppingCartContext(), _refContext);
-            RevisitedCart existingCartAgain = data3.RetrieveCart(goodId);
+            var existingCartAgain = data3.RetrieveCart(cartId);
             Assert.AreEqual(lineItemCount + 1, existingCartAgain.CartItems.Count());
             Assert.AreEqual(originalTotalItems + 2, existingCartAgain.TotalItems);
         }
+
         [TestMethod]
-        public void ProductsHaveValuesWhenReturnedFromRepo()
+        public void FixStateCanInterpretLocalState()
         {
-            var data = new WebSiteOrderData(_context, _refContext);
-            var productList = data.GetProductsWithCategoryForShopping();
-            Assert.AreNotEqual("", productList[0].Name);
+            var cart = NewCart.CreateCartFromProductSelection(_theUri, null, 1, 1, 9.99m);
+            cart.CartItems.First().UpdateQuantity(2);
+            _context.Carts.Attach(cart);
+            _context.FixState();
+            Assert.AreEqual(EntityState.Unchanged, _context.Entry(cart).State);
+            Assert.AreEqual(EntityState.Modified, _context.Entry(cart.CartItems.First()).State);
         }
 
         [TestMethod]
         public void CanRetrieveCartFromRepoUsingCartId()
         {
-            //Arrange
-            var cart = NewCart.CreateCartFromProductSelection(TheUri, null, 1, 1, 9.99m);
-            var data = new WebSiteOrderData(_context, _refContext);
-            var createdCart = data.StoreCartWithInitialProduct(cart);
-            Debug.WriteLine($"Stored Cart Id from database {createdCart.CartId}");
-            //Act (retrieve) and Assert
-            Assert.AreEqual(createdCart.CartId, data.RetrieveCart(cart.CartId).CartId);
+            //note if you want to dropcreate the db do it before context creation
+            var repo = new WebSiteOrderData(_context, _refContext);
+            var id = SeedCartAndReturnId(repo);
+            Debug.WriteLine($"Stored Cart Id from database {id}");
+            Assert.AreEqual(id, repo.RetrieveCart(id).CartId);
+        }
+
+        private int SeedCartAndReturnId(WebSiteOrderData repo)
+        {
+            var cart = NewCart.CreateCartFromProductSelection(_theUri, null, 1, 1, 9.99m);
+            var createdCart = repo.StoreCartWithInitialProduct(cart);
+            return createdCart.CartId;
         }
 
         private void WriteLog()

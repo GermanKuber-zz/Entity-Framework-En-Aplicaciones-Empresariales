@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Market.Core
 {
+    //TODO 6 - Agrego mock para test async
     internal class TestDbAsyncEnumerator<T> : IDbAsyncEnumerator<T>
     {
         private readonly IEnumerator<T> _inner;

@@ -93,6 +93,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Write.Data", "Order.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order.Write.Domain", "Order.Write.Domain\Order.Write.Domain.csproj", "{AF63C427-CEB6-469B-A273-B292CCB386F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Tests.FullDb", "ShoppingCart.Tests.FullDb\ShoppingCart.Tests.FullDb.csproj", "{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +189,10 @@ Global
 		{AF63C427-CEB6-469B-A273-B292CCB386F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF63C427-CEB6-469B-A273-B292CCB386F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF63C427-CEB6-469B-A273-B292CCB386F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -230,5 +236,6 @@ Global
 		{DC541BAE-7922-430C-8176-58351704E452} = {615C21E5-5811-4CCF-A4FC-F3FFD77F9AA5}
 		{B7E805AB-D908-4D17-B00C-6F9CDFE79309} = {3ED6910E-89C1-404B-8798-84999F98F7ED}
 		{AF63C427-CEB6-469B-A273-B292CCB386F8} = {578B6A1C-0DDF-412B-91C9-893662562181}
+		{FECB4C40-E964-4AFB-BA00-A9CDCBF8910B} = {09F43EBB-0EF2-45F8-AA12-507EB7691621}
 	EndGlobalSection
 EndGlobal

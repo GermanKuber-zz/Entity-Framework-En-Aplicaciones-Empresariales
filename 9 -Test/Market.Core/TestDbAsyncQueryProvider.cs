@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Market.Core
 {
+    //TODO 7 - Agrego mock para consultas  async
     internal class TestDbAsyncQueryProvider<TEntity> : IDbAsyncQueryProvider
     {
         private readonly IQueryProvider _inner;
