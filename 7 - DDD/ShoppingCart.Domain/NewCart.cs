@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Market.Core.Settings;
-using ShoppingCart.Domain;
 
 namespace ShoppingCart.Domain
 {

@@ -3,8 +3,6 @@ using System.Web;
 
 namespace Market.Core
 {
-
-
     public class CookieUtilities
     {
         public static HttpCookie BuildCartCookie(string createdCartCookie, DateTime cartCookieExpires)
