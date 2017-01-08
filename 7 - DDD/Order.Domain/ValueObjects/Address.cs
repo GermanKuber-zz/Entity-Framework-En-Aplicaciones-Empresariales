@@ -2,7 +2,7 @@ using Market.Core;
 
 namespace Order.Domain.ValueObjects
 {
-    //TODO 18 - Se implementa un Valu Object - Value Objects
+    //TODO 18 - Se implementa un Value Object - Value Objects
     public class Address : ValueObject<Address>
     {
         public static Address Create(string street, string city, string stateProvince, string postalCode)

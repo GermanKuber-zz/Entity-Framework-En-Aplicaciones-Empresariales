@@ -49,6 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201701081708561_Init.cs" />
+    <Compile Include="Migrations\201701081708561_Init.Designer.cs">
+      <DependentUpon>201701081708561_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderContext.cs" />
     <Compile Include="OrderSystemContextConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +67,11 @@
       <Project>{23B2D3F0-C34E-4B56-8B43-20B389A83180}</Project>
       <Name>Order.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701081708561_Init.resx">
+      <DependentUpon>201701081708561_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
