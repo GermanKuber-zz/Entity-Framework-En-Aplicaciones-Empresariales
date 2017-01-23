@@ -7,6 +7,7 @@ namespace Market.Data
 {
     public class CustomerData
     {
+        //TODO 05 - Encapsulo la interacción con Customers
         public List<Customer> GetAllCustomers()
         {
             using (var context = new MarketContext())

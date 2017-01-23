@@ -4,8 +4,10 @@ using Market.Domain.ViewModels;
 
 namespace Market.Data
 {
+    //TODO 06 - Encapsulo la interacción con Customers y sus ordenes
     public class CustomerWithOrdersData
     {
+        //TODO 04 : Probar el Metodo y su retorno - Mocking
         public List<CustomerViewModel> GetAllCustomers()
         {
             using (var context = new MarketContext())

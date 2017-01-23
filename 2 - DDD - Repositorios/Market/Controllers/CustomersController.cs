@@ -7,7 +7,7 @@ namespace Market.Controllers
 {
     public class CustomersController : Controller
     {
-        private CustomerData repo = new CustomerData();
+        private readonly CustomerData repo = new CustomerData();
 
         // GET: Customers
         public ActionResult Index()

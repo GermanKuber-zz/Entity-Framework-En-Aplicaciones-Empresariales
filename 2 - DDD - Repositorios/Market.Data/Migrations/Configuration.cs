@@ -4,7 +4,7 @@ namespace Market.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<Market.Data.MarketContext>
     {
-        //TODO 02 : Se agregan migraciones
+        //TODO 03 : Se agregan migraciones
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;

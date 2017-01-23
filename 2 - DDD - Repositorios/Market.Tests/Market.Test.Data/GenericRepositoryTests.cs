@@ -12,10 +12,10 @@ namespace Market.Test.Data
     [TestClass]
     public class GenericRepositoryIntegrationTests
     {
-        private StringBuilder _logBuilder = new StringBuilder();
+        private readonly StringBuilder _logBuilder = new StringBuilder();
         private string _log;
-        private MarketContext _context;
-        private GenericRepository<Customer> _customerRepository;
+        private readonly MarketContext _context;
+        private readonly GenericRepository<Customer> _customerRepository;
 
         public GenericRepositoryIntegrationTests()
         {
@@ -48,6 +48,7 @@ namespace Market.Test.Data
             Assert.IsFalse(_log.Contains("Mariano"));
         }
 
+        //TODO 10 - Sistema de Log para pruebas de integración
         private void WriteLog()
         {
             Debug.WriteLine(_log);
@@ -65,7 +66,7 @@ namespace Market.Test.Data
         }
 
 
-    
+
 
         [TestMethod]
         public void CanFindByCustomerByKeyWithDynamicLambda()
@@ -85,7 +86,7 @@ namespace Market.Test.Data
 
 
 
-     
+
         [TestMethod]
         public void CanQueryWithSinglePredicate()
         {
@@ -127,7 +128,7 @@ namespace Market.Test.Data
         {
             var results = _customerRepository
               .GetAllIncluding(c => c.Orders, c => c.ContactDetail);
-        
+
             Assert.IsTrue(results.Any(c => c.Orders.Any()));
         }
 
@@ -144,7 +145,7 @@ namespace Market.Test.Data
         public void CanIncludeNavigationProperties()
         {
             var results = _customerRepository.GetAllIncluding(c => c.Orders);
-           
+
             Assert.IsTrue(results.Any(c => c.Orders.Any()));
         }
 
