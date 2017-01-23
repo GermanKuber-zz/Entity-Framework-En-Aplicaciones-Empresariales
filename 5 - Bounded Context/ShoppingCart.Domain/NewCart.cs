@@ -6,6 +6,10 @@ namespace ShoppingCart.Domain
 {
     public class NewCart
     {
+        public NewCart()
+        {
+
+        }
         public static NewCart CreateCartFromProductSelection
           (string sourceUrl, string customerCookie, int productId, int quantity,
            decimal displayedPrice)
@@ -52,7 +56,7 @@ namespace ShoppingCart.Domain
         public string SourceUrl { get; private set; }
         public int CustomerId { get; private set; }
         public ICollection<CartItem> CartItems { get; private set; }
-        //TODO: decide if I should store this property in the database or not
+
         public string CustomerCookie { get; private set; }
 
     }

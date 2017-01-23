@@ -15,6 +15,7 @@ namespace Maintenance.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //TODO : 03 - Defino un Schema default
             modelBuilder.HasDefaultSchema("Maintenance");
             base.OnModelCreating(modelBuilder);
         }

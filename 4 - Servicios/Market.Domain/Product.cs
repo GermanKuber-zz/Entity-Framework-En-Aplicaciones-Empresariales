@@ -18,7 +18,7 @@ namespace Market.Domain
         public string Name { get; set; }
         public DateTime ProductionStart { get; set; }
         public bool IsAvailable { get; set; }
-        //TODO : 5 - Agrego categoria
+        //TODO : 7 - Agrego categoria
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 

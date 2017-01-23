@@ -6,6 +6,7 @@ using ShoppingCart.Domain;
 
 namespace ShoppingCart.Services
 {
+    //TODO : 08 - Creo un servicio para administrar la lógica
     public class WebSiteOrderingService
     {
         private readonly WebSiteOrderData _siteOrderData;
@@ -22,6 +23,7 @@ namespace ShoppingCart.Services
             products.ForEach(p => lineitems.Add(new ProductLineItemViewModel
             {
                 ProductId = p.ProductId,
+                //TODO: 09 - Asigno el nombre del nuevo modelo
                 CategoryName = p.Category,
                 Description = p.Description,
                 Name = p.Name,

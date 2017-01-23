@@ -10,14 +10,16 @@ namespace ShoppingCart.Data
         private readonly ShoppingCartContext _context;
         private readonly ReferenceContext _refContext;
 
+        //TODO : 04 - IOC
         public WebSiteOrderData(ShoppingCartContext context, ReferenceContext refContext)
         {
             _context = context;
             _refContext = refContext;
         }
 
-        public List<Domain.Product> GetProductsWithCategoryForShopping()
+        public List<Product> GetProductsWithCategoryForShopping()
         {
+            //TODO : 07 - Utilizo el contexto Reference
             return _refContext.Products.AsNoTracking()
                .ToList();
         }

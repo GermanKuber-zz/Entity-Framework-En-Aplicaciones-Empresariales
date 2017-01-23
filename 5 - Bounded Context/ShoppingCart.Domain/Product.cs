@@ -1,5 +1,6 @@
 namespace ShoppingCart.Domain
 {
+    //TODO : 01 - Defino una clase producto para el carro de compra
     public class Product
     {
         public int ProductId { get; private set; }

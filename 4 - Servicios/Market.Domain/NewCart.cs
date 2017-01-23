@@ -4,7 +4,7 @@ using Market.Core.Settings;
 
 namespace Market.Domain
 {
-    // TODO : 2 - Implemento clase
+    // TODO : 2 - Implemento clase que se encarga de encapsular el comportamiento de un carrito en memoria
     public class NewCart
     {
         public static NewCart CreateCartFromProductSelection

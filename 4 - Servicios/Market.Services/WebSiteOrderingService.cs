@@ -6,6 +6,7 @@ using Market.Web.Customer.ViewModels;
 
 namespace Market.Services
 {
+    //TODO : 8 - Creo servicio para encapsular la logica de "Dominio"
     public class WebSiteOrderingService
     {
         private readonly WebSiteOrderData _siteOrderData;

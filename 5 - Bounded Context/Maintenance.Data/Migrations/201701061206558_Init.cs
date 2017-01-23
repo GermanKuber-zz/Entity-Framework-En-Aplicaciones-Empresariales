@@ -2,6 +2,7 @@ namespace Maintenance.Data.Migrations
 {
     using System.Data.Entity.Migrations;
 
+    //TODO : 05 - Agrego migraciones
     public partial class Init : DbMigration
     {
         public override void Up()

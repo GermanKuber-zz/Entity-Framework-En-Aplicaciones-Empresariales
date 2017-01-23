@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Market.Domain
 {
-    // TODO : 2 - Implemento clase
+    // TODO : 3 - Implemento clase encapsula el carro de comprar en memoria recuperado de la DB
     public class RevisitedCart
     {
         public static RevisitedCart CreateWithItems(int cartId, ICollection<CartItem> cartItems)

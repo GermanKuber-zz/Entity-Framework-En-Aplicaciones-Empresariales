@@ -4,6 +4,7 @@ namespace ShoppingCart.Data
 {
     public class ReferenceContext : DbContext
     {
+        //TODO : 06 - Agrego Contexto de referencia
         public ReferenceContext() : base("name=MarketContext")
         {
         }

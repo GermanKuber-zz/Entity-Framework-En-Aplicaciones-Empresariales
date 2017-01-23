@@ -20,12 +20,4 @@ namespace ShoppingCart.Data
             base.OnModelCreating(modelBuilder);
         }
     }
-
-    public class ShoppingCartContextConfig : DbConfiguration
-    {
-        public ShoppingCartContextConfig()
-        {
-            this.SetDatabaseInitializer(new NullDatabaseInitializer<ShoppingCartContext>());
-        }
-    }
 }

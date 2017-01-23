@@ -2,6 +2,7 @@ using System;
 
 namespace Maintenance.Domain
 {
+    //TODO : 02 - Defino una clase producto para el administrador
     public class Product
     {
         public Product()

@@ -5,9 +5,10 @@ using Market.Web.Customer.ViewModels;
 
 namespace Market.Web.Customer.Controllers
 {
+    //TODO : 6 - Implemento nuevo proyecto para la venta de productos
     public class ProductListController : Controller
     {
-        private WebSiteOrderingService _service;
+        private readonly WebSiteOrderingService _service;
 
         public ProductListController(WebSiteOrderingService service)
         {
@@ -27,8 +28,7 @@ namespace Market.Web.Customer.Controllers
         private ShoppingViewModel BuildCartViewModelFromProductListAndTempData
            (object tempCount, object tempId, List<ProductLineItemViewModel> products)
         {
-            var svm = new ShoppingViewModel();
-            svm.Products = products;
+            var svm = new ShoppingViewModel { Products = products };
             int cartCount = 0;
             int cartId = 0;
             if (tempCount != null) int.TryParse(tempCount.ToString(), out cartCount);

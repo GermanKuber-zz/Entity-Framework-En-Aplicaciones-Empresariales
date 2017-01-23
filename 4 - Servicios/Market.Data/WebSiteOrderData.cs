@@ -6,7 +6,7 @@ using Market.Domain;
 
 namespace Market.Data
 {
-    //TODO : 1 - Se implementa Clase
+    //TODO : 1 - Se implementa Clase con logica para el carro de compras
     public class WebSiteOrderData
     {
         private readonly MarketContext _context;
@@ -66,7 +66,7 @@ namespace Market.Data
 
         public void StoreNewCartItem(CartItem item)
         {
-            //item should be valid before we get here but one last check
+
             if (item.CartId == 0) throw new InvalidDataException("Cart Item is not associated with a cart", new InvalidDataException("CartId is 0"));
             _context.CartItems.Add(item);
             _context.SaveChanges();

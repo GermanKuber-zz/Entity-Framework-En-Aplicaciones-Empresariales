@@ -4,7 +4,7 @@ namespace Market.Domain
 {
     public class CartItem
     {
-        // TODO : 2 - Implemento clase
+
         private CartItem(int productId, int quantity, decimal displayedPrice, string cartCookie)
         {
             CartCookie = cartCookie;

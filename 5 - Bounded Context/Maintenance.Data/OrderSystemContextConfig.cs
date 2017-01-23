@@ -6,7 +6,7 @@ namespace Maintenance.Data
     {
         public OrderSystemContextConfig()
         {
-            this.SetDatabaseInitializer(new InitializerToSeedDataForMarketContext());
+            SetDatabaseInitializer(new InitializerToSeedDataForMarketContext());
         }
 
     }

@@ -25,7 +25,7 @@ namespace Market.Domain
 
         public List<Order> Orders { get; set; }
         public List<Address> Addresses { get; set; }
-        //TODO : 4 - Agrego propiedad de Cookies
+        //TODO : 5 - Agrego propiedad de Cookies
         public string CustomerCookie { get; set; }
         public string FullName
         {
