@@ -4,7 +4,7 @@ using Market.Core.Interfaces;
 
 namespace ShoppingCart.Domain
 {
-    //TODO 2 -  Private Setters & Constructors
+    //TODO 02 -  Private Setters & Constructors
     public class CartItem : IStateObject
     {
         private CartItem(int productId, int quantity, decimal displayedPrice, string cartCookie)
@@ -52,7 +52,7 @@ namespace ShoppingCart.Domain
             if (Quantity != newQuantity)
             {
                 Quantity = newQuantity;
-                this.State = ObjectState.Modified;
+                State = ObjectState.Modified;
             }
         }
 

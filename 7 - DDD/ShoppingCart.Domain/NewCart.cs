@@ -4,7 +4,7 @@ using Market.Core.Settings;
 
 namespace ShoppingCart.Domain
 {
-    //TODO 6 - Private Setters & Constructors / 1
+    //TODO 06 - Private Setters & Constructors / 1
     public class NewCart
     {
         public static NewCart CreateCartFromProductSelection
@@ -16,6 +16,7 @@ namespace ShoppingCart.Domain
             cart.InsertNewCartItem(productId, quantity, displayedPrice);
             return cart;
         }
+
 
         private NewCart(string sourceUrl, string customerCookie)
         {
@@ -48,7 +49,7 @@ namespace ShoppingCart.Domain
         public DateTime Expires { get; private set; }
         public string SourceUrl { get; private set; }
         public int CustomerId { get; private set; }
-        //TODO 1 -  Aggregate
+        //TODO 01 -  Aggregate
         public ICollection<CartItem> CartItems { get; private set; }
         public string CustomerCookie { get; private set; }
 

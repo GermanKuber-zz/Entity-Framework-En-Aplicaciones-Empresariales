@@ -16,7 +16,7 @@ namespace Maintenance.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("Maintenance");
-            //TODO  11 - Agrego relacion
+            //TODO 11 - Agrego relacion
             modelBuilder.Entity<Customer>()
                         .HasOptional(c => c.ContactDetail)
                         .WithRequired(d => d.Customer);

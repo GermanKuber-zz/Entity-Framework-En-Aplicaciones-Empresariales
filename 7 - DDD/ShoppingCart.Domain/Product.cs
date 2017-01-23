@@ -1,6 +1,6 @@
 namespace ShoppingCart.Domain
 {
-    //TODO 3 - Private Setters & Constructors / 1
+    //TODO 03 - Private Setters & Constructors / 1
     public class Product
     {
         public int ProductId { get; private set; }

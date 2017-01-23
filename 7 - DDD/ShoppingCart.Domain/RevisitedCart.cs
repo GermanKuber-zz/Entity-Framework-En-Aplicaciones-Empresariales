@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ShoppingCart.Domain
 {
-    //TODO 8 - Private Collections
+    //TODO 08 - Private Collections
     public class RevisitedCart
     {
 

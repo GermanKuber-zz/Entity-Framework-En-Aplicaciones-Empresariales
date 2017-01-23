@@ -6,7 +6,7 @@ namespace Order.Data
 {
     public class OrderContext : DbContext
     {
-        public OrderContext() : base("name=OrderContext")
+        public OrderContext() : base("name=MarketContext")
         {
 
         }

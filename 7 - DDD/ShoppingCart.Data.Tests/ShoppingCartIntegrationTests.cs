@@ -70,7 +70,7 @@ namespace ShoppingCart.Data.Tests
 
 
         }
-        //TODO 5 - Private Setters & Constructors / 3
+        //TODO 05 - Private Setters & Constructors / 3
         [TestMethod]
         public void ProductsHaveValuesWhenReturnedFromRepo()
         {
@@ -79,7 +79,7 @@ namespace ShoppingCart.Data.Tests
             Assert.AreNotEqual("", productList[0].Name);
         }
 
-        //TODO 7 - Private Setters & Constructors / 2
+        //TODO 07 - Private Setters & Constructors / 2
         [TestMethod]
         public void CanRetrieveCartFromRepoUsingCartId()
         {

@@ -17,8 +17,8 @@ namespace ShoppingCart.Data
             _refContext = refContext;
         }
 
-        //TODO 4 - Private Setters & Constructors / 2
-        public List<Domain.Product> GetProductsWithCategoryForShopping()
+        //TODO 04 - Private Setters & Constructors / 2
+        public List<Product> GetProductsWithCategoryForShopping()
         {
             return _refContext.Products.AsNoTracking()
                .ToList();

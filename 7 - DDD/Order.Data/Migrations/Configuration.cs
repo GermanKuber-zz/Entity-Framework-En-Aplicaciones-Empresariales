@@ -5,14 +5,14 @@ namespace Order.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Order.Data.OrderContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<OrderContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Order.Data.OrderContext context)
+        protected override void Seed(OrderContext context)
         {
             //  This method will be called after migrating to the latest version.
 

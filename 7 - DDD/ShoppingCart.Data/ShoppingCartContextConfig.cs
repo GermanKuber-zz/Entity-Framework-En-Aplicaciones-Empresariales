@@ -6,7 +6,7 @@ namespace ShoppingCart.Data
     {
         public ShoppingCartContextConfig()
         {
-            this.SetDatabaseInitializer(new NullDatabaseInitializer<ShoppingCartContext>());
+            SetDatabaseInitializer(new NullDatabaseInitializer<ShoppingCartContext>());
         }
     }
 }

@@ -2,14 +2,14 @@ namespace Maintenance.Data.Migrations
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Maintenance.Data.MaintenanceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MaintenanceContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Maintenance.Data.MaintenanceContext context)
+        protected override void Seed(MaintenanceContext context)
         {
             //  This method will be called after migrating to the latest version.
 

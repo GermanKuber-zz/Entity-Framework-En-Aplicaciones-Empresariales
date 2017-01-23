@@ -3,7 +3,7 @@ namespace Order.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
 
-    //TODO 20 - Genero las migraciones
+    //TODO 20 - Creo nuevo contexto - Genero las migraciones
     public partial class Init : DbMigration
     {
         public override void Up()
