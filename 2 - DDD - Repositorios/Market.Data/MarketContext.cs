@@ -5,8 +5,6 @@ namespace Market.Data
 {
     public class MarketContext : DbContext
     {
- 
-
         public MarketContext() : base("name=MarketContext")
         {
             Database.SetInitializer<MarketContext>(new InitializerToSeedDataForMarketContext());

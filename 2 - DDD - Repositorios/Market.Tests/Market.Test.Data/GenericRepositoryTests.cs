@@ -102,7 +102,7 @@ namespace Market.Test.Data
             var results = _customerRepository
               .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date);
             WriteLog();
-            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001"));
+            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("01/01/2001"));
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@ namespace Market.Test.Data
                .FindBy(c => c.LastName.StartsWith("L") && c.DateOfBirth >= date
                                                        && c.Orders.Any());
             WriteLog();
-            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("1/1/2001") && _log.Contains("Orders"));
+            Assert.IsTrue(_log.Contains("'L%'") && _log.Contains("01/01/2001") && _log.Contains("Orders"));
         }
 
         [TestMethod]

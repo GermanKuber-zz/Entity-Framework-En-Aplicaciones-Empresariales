@@ -7,7 +7,7 @@ namespace Market.Data.Migrations
         //TODO 03 : Se agregan migraciones
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "Market.Data.MarketContext";
         }
 
