@@ -46,7 +46,5 @@ namespace Market.Data
                 return cust;
             }
         }
-
-
     }
 }
