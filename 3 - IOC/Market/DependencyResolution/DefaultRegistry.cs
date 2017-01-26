@@ -38,9 +38,9 @@ namespace Market.DependencyResolution
             For<DbContext>().Use<MarketContext>().Transient();
 
             //Alternate
-            For(typeof(GenericRepository<>))
-              .Use(typeof(GenericRepository<>))
-              .Ctor<DbContext>().Is(new OrderSystemContext());
+            //For(typeof(GenericRepository<>))
+            //  .Use(typeof(GenericRepository<>))
+            //  .Ctor<DbContext>().Is(new OrderSystemContext());
         }
 
         #endregion
