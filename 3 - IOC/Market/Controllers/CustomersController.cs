@@ -8,7 +8,7 @@ namespace Market.Controllers
     public class CustomersController : Controller
     {
         private GenericRepository<Customer> repo;
-
+        //TODO : 03 - Se injecta repositorio
         public CustomersController(GenericRepository<Customer> _repo)
         {
             repo = _repo;

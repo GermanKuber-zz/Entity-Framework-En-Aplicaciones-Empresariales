@@ -33,14 +33,14 @@ namespace Market.DependencyResolution
                     scan.WithDefaultConventions();
                     scan.With(new ControllerConvention());
                 });
-            //TODO : 2 - Registro mi contexto
+            //TODO : 02 - Registro mi contexto
             //remember that Transient is the default. Left it here as a reminder
             For<DbContext>().Use<MarketContext>().Transient();
 
             //Alternate
-            //For(typeof(GenericRepository<>))
-            //  .Use(typeof(GenericRepository<>))
-            //  .Ctor<DbContext>().Is(new OrderSystemContext());
+            For(typeof(GenericRepository<>))
+              .Use(typeof(GenericRepository<>))
+              .Ctor<DbContext>().Is(new OrderSystemContext());
         }
 
         #endregion
