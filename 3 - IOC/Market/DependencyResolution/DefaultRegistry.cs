@@ -36,7 +36,7 @@ namespace Market.DependencyResolution
             //TODO : 02 - Registro mi contexto
             //remember that Transient is the default. Left it here as a reminder
             For<DbContext>().Use<MarketContext>().Transient();
-
+            //TODO : 04 - IOC distintos contextos
             //Alternate
             //For(typeof(GenericRepository<>))
             //  .Use(typeof(GenericRepository<>))

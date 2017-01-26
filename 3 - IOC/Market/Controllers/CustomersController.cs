@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Market.Data;
 using Market.Domain;
+using System.Data.Entity;
 
 namespace Market.Controllers
 {
@@ -9,7 +10,10 @@ namespace Market.Controllers
     {
         private GenericRepository<Customer> repo;
         //TODO : 03 - Se injecta repositorio
+        
         public CustomersController(GenericRepository<Customer> _repo)
+        //public CustomersController(GenericRepository<Customer> _repo, DbContext context)
+        //TODO : 5 - New context
         {
             repo = _repo;
         }
